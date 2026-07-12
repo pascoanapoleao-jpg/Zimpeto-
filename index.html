@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="pt-MZ" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CodeZimpeto — Aprenda HTML, CSS e JavaScript em Maputo. Cursos presenciais e online no Zimpeto, Moçambique. A partir de 1.000 MT." />
+  <meta name="keywords" content="programação Maputo, cursos HTML Zimpeto, JavaScript Moçambique, aprender programar" />
+  <title>CodeZimpeto — Aprende a Programar em Maputo</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       BARRA DE ANÚNCIO (topo)
+       ============================================================ -->
+  <div class="announcement-bar" id="announcementBar">
+    <span>🎉 Matrículas abertas! Desconto de 20% nas primeiras 20 inscrições. Vagas limitadas.</span>
+    <button class="ann-close" onclick="document.getElementById('announcementBar').remove()" aria-label="Fechar">✕</button>
+  </div>
+
+  <!-- ============================================================
+       NAVEGAÇÃO
+       ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner container">
+
+      <!-- Logo -->
+      <a href="#home" class="nav-logo" aria-label="CodeZimpeto — Página inicial">
+        <span class="logo-bracket">&lt;</span>Code<span class="logo-accent">Zimpeto</span><span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <!-- Links desktop -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home"     class="nav-link active">Home</a></li>
+        <li><a href="#cursos"   class="nav-link">Cursos</a></li>
+        <li><a href="#demo"     class="nav-link">Demo</a></li>
+        <li><a href="#sobre"    class="nav-link">Sobre</a></li>
+        <li><a href="#contato"  class="nav-link">Contato</a></li>
+      </ul>
+
+      <!-- Ações -->
+      <div class="nav-actions">
+        <!-- Dark mode toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar modo escuro" title="Modo escuro">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <!-- CTA -->
+        <a href="#contato" class="btn btn-primary btn-sm">Matricular</a>
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section class="hero" id="home">
+    <!-- Partículas de código flutuantes (criadas via JS) -->
+    <div class="particles" id="particles" aria-hidden="true"></div>
+
+    <!-- Grade de fundo decorativa -->
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <div class="hero-inner container">
+
+      <!-- Coluna de texto -->
+      <div class="hero-text">
+        <span class="hero-eyebrow">📍 Zimpeto, Maputo · Moçambique</span>
+
+        <h1 class="hero-title">
+          Aprenda a Criar<br />
+          <span class="gradient-text">Sites com HTML</span><br />
+          e JavaScript
+        </h1>
+
+        <p class="hero-subtitle">
+          Cursos presenciais e online no Zimpeto — do básico ao freelancer.
+          Aprende programação com um instrutor local que fala a tua língua.
+        </p>
+
+        <!-- Preço destaque -->
+        <div class="hero-price-badge">
+          <span class="price-from">A partir de</span>
+          <span class="price-value">1.000 MT</span>
+          <span class="price-note">· pagamento flexível</span>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg" onclick="openModal()">
+            📲 MATRICULAR AGORA
+          </button>
+          <a href="#cursos" class="btn btn-outline btn-lg">Ver Cursos</a>
+        </div>
+
+        <!-- Mini prova social -->
+        <div class="hero-social-proof">
+          <div class="avatar-stack" aria-hidden="true">
+            <div class="avatar av1">M</div>
+            <div class="avatar av2">J</div>
+            <div class="avatar av3">A</div>
+            <div class="avatar av4">T</div>
+          </div>
+          <p>
+            <strong id="studentCount">0</strong> alunos já matriculados
+            <span class="stars" aria-label="5 estrelas">★★★★★</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Terminal animado (coluna direita) -->
+      <div class="hero-terminal" aria-hidden="true">
+        <div class="terminal-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="terminal-title">index.html — CodeZimpeto</span>
+        </div>
+        <pre class="terminal-code" id="terminalCode"></pre>
+        <div class="terminal-cursor" id="terminalCursor">|</div>
+      </div>
+
+    </div>
+
+    <!-- Seta scroll -->
+    <a href="#stats" class="scroll-arrow" aria-label="Rolar para baixo">
+      <span>↓</span>
+    </a>
+  </section>
+
+  <!-- ============================================================
+       ESTATÍSTICAS / COUNTERS
+       ============================================================ -->
+  <section class="stats" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card" data-target="120" data-suffix="+">
+          <span class="stat-number" id="stat0">0</span>
+          <span class="stat-label">Alunos Formados</span>
+        </div>
+        <div class="stat-card" data-target="3" data-suffix=" cursos">
+          <span class="stat-number" id="stat1">0</span>
+          <span class="stat-label">Pacotes Disponíveis</span>
+        </div>
+        <div class="stat-card" data-target="98" data-suffix="%">
+          <span class="stat-number" id="stat2">0</span>
+          <span class="stat-label">Taxa de Satisfação</span>
+        </div>
+        <div class="stat-card" data-target="40" data-suffix="h+">
+          <span class="stat-number" id="stat3">0</span>
+          <span class="stat-label">Horas de Conteúdo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CURSOS
+       ============================================================ -->
+  <section class="courses" id="cursos">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-eyebrow">O que vais aprender</span>
+        <h2 class="section-title">Escolhe o teu Pacote</h2>
+        <p class="section-sub">Todos os cursos incluem suporte via WhatsApp e material digital gratuito.</p>
+      </div>
+
+      <!-- Abas de perfil -->
+      <div class="profile-tabs" role="tablist">
+        <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="iniciante">Para Iniciantes</button>
+        <button class="tab-btn"        role="tab" aria-selected="false" data-tab="sites">Criar Sites</button>
+        <button class="tab-btn"        role="tab" aria-selected="false" data-tab="freelancer">Freelancer</button>
+      </div>
+
+      <div class="tab-content" id="tabContent">
+
+        <!-- TAB: Iniciante -->
+        <div class="tab-panel active" data-panel="iniciante">
+          <p class="tab-desc">Nunca escreveste uma linha de código? Perfeito. Começamos do zero absoluto.</p>
+        </div>
+        <div class="tab-panel" data-panel="sites">
+          <p class="tab-desc">Aprende a construir páginas web reais com HTML5, CSS3 e JavaScript interactivo.</p>
+        </div>
+        <div class="tab-panel" data-panel="freelancer">
+          <p class="tab-desc">Torna-te freelancer e começa a ganhar dinheiro criando sites para clientes em Maputo e além.</p>
+        </div>
+
+      </div>
+
+      <!-- Cards de preço -->
+      <div class="pricing-grid">
+
+        <!-- Pacote Básico -->
+        <div class="pricing-card">
+          <div class="card-header">
+            <span class="card-badge">Básico</span>
+            <div class="card-price">
+              <span class="price-currency">MT</span>
+              <span class="price-amount">1.000</span>
+              <!-- 🔧 PERSONALIZAÇÃO: altere este valor de preço aqui -->
+            </div>
+            <p class="card-duration">Duração: 3 semanas · 15h</p>
+          </div>
+          <ul class="card-features">
+            <li>✅ Introdução a HTML5</li>
+            <li>✅ Estrutura de uma página web</li>
+            <li>✅ Textos, imagens, links e tabelas</li>
+            <li>✅ Formulários básicos</li>
+            <li>✅ Material digital PDF</li>
+            <li>❌ CSS avançado</li>
+            <li>❌ JavaScript</li>
+            <li>❌ Suporte prioritário</li>
+          </ul>
+          <button class="btn btn-outline btn-full" onclick="openModal('Básico — 1.000 MT')">Escolher Básico</button>
+        </div>
+
+        <!-- Pacote Intermediário (MAIS POPULAR) -->
+        <div class="pricing-card featured">
+          <div class="popular-badge">⭐ Mais Popular</div>
+          <div class="card-header">
+            <span class="card-badge accent">Intermediário</span>
+            <div class="card-price">
+              <span class="price-currency">MT</span>
+              <span class="price-amount">2.000</span>
+              <!-- 🔧 PERSONALIZAÇÃO: altere este valor de preço aqui -->
+            </div>
+            <p class="card-duration">Duração: 6 semanas · 30h</p>
+          </div>
+          <ul class="card-features">
+            <li>✅ Tudo do Básico</li>
+            <li>✅ CSS3 completo e responsivo</li>
+            <li>✅ JavaScript do zero</li>
+            <li>✅ Animações e interactividade</li>
+            <li>✅ 2 Projectos reais</li>
+            <li>✅ Suporte via WhatsApp</li>
+            <li>❌ Portfólio online</li>
+            <li>❌ Mentoria individual</li>
+          </ul>
+          <button class="btn btn-primary btn-full" onclick="openModal('Intermediário — 2.000 MT')">Escolher Intermediário</button>
+        </div>
+
+        <!-- Pacote Completo -->
+        <div class="pricing-card">
+          <div class="card-header">
+            <span class="card-badge">Completo</span>
+            <div class="card-price">
+              <span class="price-currency">MT</span>
+              <span class="price-amount">2.800</span>
+              <!-- 🔧 PERSONALIZAÇÃO: altere este valor de preço aqui -->
+            </div>
+            <p class="card-duration">Duração: 10 semanas · 40h+</p>
+          </div>
+          <ul class="card-features">
+            <li>✅ Tudo do Intermediário</li>
+            <li>✅ Projectos avançados</li>
+            <li>✅ Portfólio online publicado</li>
+            <li>✅ Como encontrar clientes freelancer</li>
+            <li>✅ Certificado de conclusão</li>
+            <li>✅ Suporte prioritário 30 dias</li>
+            <li>✅ Mentoria individual (2 sessões)</li>
+            <li>✅ Acesso a grupo exclusivo</li>
+          </ul>
+          <button class="btn btn-outline btn-full" onclick="openModal('Completo — 2.800 MT')">Escolher Completo</button>
+        </div>
+
+      </div><!-- /pricing-grid -->
+
+      <!-- Módulos do curso -->
+      <div class="modules-section">
+        <h3 class="modules-title">O que está incluído no curso</h3>
+        <div class="modules-grid">
+          <div class="module-card">
+            <span class="module-icon">🌐</span>
+            <h4>HTML5</h4>
+            <p>Estrutura, semântica, formulários e elementos modernos da web.</p>
+          </div>
+          <div class="module-card">
+            <span class="module-icon">🎨</span>
+            <h4>CSS3</h4>
+            <p>Design responsivo, Flexbox, Grid, animações e modo escuro.</p>
+          </div>
+          <div class="module-card">
+            <span class="module-icon">⚡</span>
+            <h4>JavaScript</h4>
+            <p>Lógica de programação, DOM, eventos e projectos interactivos.</p>
+          </div>
+          <div class="module-card">
+            <span class="module-icon">🚀</span>
+            <h4>Projectos Práticos</h4>
+            <p>Construi sites reais: portfólio, loja, calculadora, to-do app e mais.</p>
+          </div>
+          <div class="module-card">
+            <span class="module-icon">📱</span>
+            <h4>Design Responsivo</h4>
+            <p>Sites que funcionam perfeitamente em celulares, tablets e PCs.</p>
+          </div>
+          <div class="module-card">
+            <span class="module-icon">💼</span>
+            <h4>Freelancing</h4>
+            <p>Como encontrar clientes, fazer orçamentos e gerir projectos pagos.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DEMO / VÍDEO SLOW-MOTION
+       ============================================================ -->
+  <section class="demo-section" id="demo">
+    <div class="container">
+      <div class="section-header light">
+        <span class="section-eyebrow">Vê antes de decidir</span>
+        <h2 class="section-title">Demo ao Vivo — Codificação em Tempo Real</h2>
+        <p class="section-sub">Vê como é criar uma página web do zero. Controla a velocidade e pausa quando quiseres.</p>
+      </div>
+
+      <!-- Player de demo -->
+      <div class="demo-player">
+        <div class="demo-screen">
+          <!-- Terminal de codificação ao vivo (animado com JS) -->
+          <div class="demo-editor">
+            <div class="editor-tabs">
+              <span class="editor-tab active">index.html</span>
+              <span class="editor-tab">style.css</span>
+            </div>
+            <pre class="editor-code" id="demoCode"><code id="demoCodeContent"></code></pre>
+          </div>
+          <!-- Preview do resultado -->
+          <div class="demo-preview">
+            <div class="preview-bar">
+              <span class="preview-dot"></span>
+              <span class="preview-dot"></span>
+              <span class="preview-dot"></span>
+              <span class="preview-label">Resultado ao vivo</span>
+            </div>
+            <div class="preview-content" id="previewContent">
+              <!-- Resultado gerado pelo JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Controlos de velocidade -->
+        <div class="demo-controls">
+          <button class="ctrl-btn" id="demoPlay" onclick="demoControl('play')" aria-label="Play">▶ Play</button>
+          <button class="ctrl-btn" id="demoPause" onclick="demoControl('pause')" aria-label="Pause">⏸ Pause</button>
+          <button class="ctrl-btn" id="demoReset" onclick="demoControl('reset')" aria-label="Reiniciar">↺ Reiniciar</button>
+          <div class="speed-control">
+            <label for="demoSpeed">Velocidade:</label>
+            <select id="demoSpeed" onchange="setDemoSpeed(this.value)">
+              <option value="3">🐢 0.25×</option>
+              <option value="2" selected>🐇 Normal</option>
+              <option value="1">⚡ Rápido</option>
+            </select>
+          </div>
+        </div>
+
+      </div><!-- /demo-player -->
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROJECTOS DOS ALUNOS
+       ============================================================ -->
+  <section class="projects-section" id="projectos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">O que vais construir</span>
+        <h2 class="section-title">Projectos dos Alunos</h2>
+        <p class="section-sub">Sites reais criados por alunos do CodeZimpeto durante o curso.</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-thumb proj1">
+            <div class="project-overlay">
+              <span class="project-tag">Portfólio Pessoal</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <h4>Portfólio do Mateus</h4>
+            <p>Desenvolvido na semana 4 do curso Intermediário.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb proj2">
+            <div class="project-overlay">
+              <span class="project-tag">Loja Online</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <h4>Loja de Capulanas</h4>
+            <p>Site de vendas criado pela aluna Fátima no pacote Completo.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb proj3">
+            <div class="project-overlay">
+              <span class="project-tag">App To-Do</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <h4>Gestor de Tarefas</h4>
+            <p>JavaScript puro — projecto final do módulo de JavaScript.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb proj4">
+            <div class="project-overlay">
+              <span class="project-tag">Calculadora</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <h4>Calculadora Web</h4>
+            <p>Criada com HTML, CSS e JavaScript no módulo básico.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DEPOIMENTOS
+       ============================================================ -->
+  <section class="testimonials" id="depoimentos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Quem já aprendeu</span>
+        <h2 class="section-title">O que dizem os nossos alunos</h2>
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-text">"Antes não sabia nada de programação. Depois do curso consegui criar o site da minha mercearia e já tenho clientes a contactar-me online!"</p>
+          <div class="test-author">
+            <div class="test-avatar" style="background:#009639;">M</div>
+            <div>
+              <strong>Mateus Cossa</strong>
+              <span>Aluno — Pacote Intermediário</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-text">"O instrutor é muito paciente e explica tudo em português claro. As aulas são práticas — sem teoria a mais. Recomendo a todos no Zimpeto!"</p>
+          <div class="test-author">
+            <div class="test-avatar" style="background:#1a3a6b;">J</div>
+            <div>
+              <strong>Joana Machava</strong>
+              <span>Aluna — Pacote Completo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-text">"Comecei o curso básico e gostei tanto que fiz upgrade para o completo. Já tenho o meu portfólio online e estou à procura do meu primeiro cliente freelancer."</p>
+          <div class="test-author">
+            <div class="test-avatar" style="background:#FF6B35;">A</div>
+            <div>
+              <strong>André Nhantumbo</strong>
+              <span>Aluno — Pacote Completo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="test-stars">★★★★☆</div>
+          <p class="test-text">"Faço as aulas à noite depois do trabalho e o instrutor é super flexível com os horários. O suporte no WhatsApp é muito rápido — sempre responde!"</p>
+          <div class="test-author">
+            <div class="test-avatar" style="background:#8B5CF6;">T</div>
+            <div>
+              <strong>Teresa Bila</strong>
+              <span>Aluna — Pacote Intermediário</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SOBRE NÓS
+       ============================================================ -->
+  <section class="about" id="sobre">
+    <div class="container">
+      <div class="about-inner">
+
+        <div class="about-visual" aria-hidden="true">
+          <div class="about-code-block">
+            <div class="code-line"><span class="ck">const</span> <span class="cv">instrutor</span> = {</div>
+            <div class="code-line pl2"><span class="cs">nome:</span> <span class="cstr">"Yusuf Macore"</span>,</div>
+            <div class="code-line pl2"><span class="cs">localização:</span> <span class="cstr">"Zimpeto, Maputo"</span>,</div>
+            <div class="code-line pl2"><span class="cs">experiência:</span> <span class="cn">5</span> <span class="cc">// anos</span>,</div>
+            <div class="code-line pl2"><span class="cs">missão:</span> <span class="cstr">"Formar programadores MZ"</span>,</div>
+            <div class="code-line pl2"><span class="cs">linguagens:</span> [<span class="cstr">"HTML"</span>, <span class="cstr">"CSS"</span>, <span class="cstr">"JS"</span>]</div>
+            <div class="code-line">};</div>
+            <div class="code-line mt1"><span class="cc">// A missão do CodeZimpeto:</span></div>
+            <div class="code-line"><span class="ck">function</span> <span class="cf">formarProgramadores</span>() {</div>
+            <div class="code-line pl2"><span class="ck">return</span> <span class="cstr">"🇲🇿 Maputo no mapa tech mundial"</span>;</div>
+            <div class="code-line">}</div>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <span class="section-eyebrow">Quem somos</span>
+          <h2 class="section-title">Formamos Programadores<br />em Moçambique</h2>
+          <p>O <strong>CodeZimpeto</strong> nasceu com uma missão simples: tornar a programação acessível a todos os moçambicanos, independentemente do nível de escolaridade ou experiência prévia.</p>
+          <p>Somos baseados no <strong>Zimpeto, Maputo</strong> e oferecemos aulas presenciais e online em horários flexíveis — incluindo fins de semana e períodos nocturnos para quem trabalha.</p>
+          <p>O nosso instrutor tem mais de 5 anos de experiência em desenvolvimento web e acredita que qualquer pessoa pode aprender a programar com o método certo e apoio local.</p>
+
+          <div class="about-highlights">
+            <div class="highlight">
+              <span class="highlight-icon">📍</span>
+              <div>
+                <strong>Localização</strong>
+                <span>Zimpeto, Maputo, Moçambique</span>
+              </div>
+            </div>
+            <div class="highlight">
+              <span class="highlight-icon">🕐</span>
+              <div>
+                <strong>Horários flexíveis</strong>
+                <span>Manhã, tarde, noite e fins de semana</span>
+              </div>
+            </div>
+            <div class="highlight">
+              <span class="highlight-icon">🌍</span>
+              <div>
+                <strong>Modalidade</strong>
+                <span>Presencial em Zimpeto ou 100% online</span>
+              </div>
+            </div>
+            <div class="highlight">
+              <span class="highlight-icon">💬</span>
+              <div>
+                <strong>Língua</strong>
+                <span>Português moçambicano — sem jargão difícil</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" onclick="openModal()">📲 Fala Connosco no WhatsApp</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTATO & MATRÍCULA
+       ============================================================ -->
+  <section class="contact" id="contato">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Vamos começar</span>
+        <h2 class="section-title">Matricula-te Agora</h2>
+        <p class="section-sub">Preenche o formulário ou fala connosco directamente no WhatsApp. Respondemos em menos de 1 hora.</p>
+      </div>
+
+      <div class="contact-inner">
+
+        <!-- Formulário -->
+        <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)" novalidate>
+          <div class="form-group">
+            <label for="name">Nome completo *</label>
+            <input type="text" id="name" name="name" placeholder="Ex: Maria Tembe" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Número de telefone *</label>
+            <input type="tel" id="phone" name="phone" placeholder="+258 8X XXX XXXX" required />
+          </div>
+          <div class="form-group">
+            <label for="course">Pacote desejado *</label>
+            <select id="course" name="course" required>
+              <option value="">— Seleccione um pacote —</option>
+              <option value="basico">Básico — 1.000 MT (HTML5, 3 semanas)</option>
+              <option value="intermediario">Intermediário — 2.000 MT (HTML + CSS + JS, 6 semanas)</option>
+              <option value="completo">Completo — 2.800 MT (Tudo + Freelancing, 10 semanas)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="modalidade">Modalidade preferida</label>
+            <select id="modalidade" name="modalidade">
+              <option value="presencial">Presencial (Zimpeto, Maputo)</option>
+              <option value="online">Online (qualquer lugar)</option>
+              <option value="hibrido">Híbrido (presencial + online)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Mensagem (opcional)</label>
+            <textarea id="message" name="message" rows="3" placeholder="Alguma dúvida ou preferência de horário?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full btn-lg">
+            📨 Enviar Pré-inscrição
+          </button>
+          <p class="form-note">* Os teus dados não são partilhados. Respondemos via WhatsApp.</p>
+        </form>
+
+        <!-- Info de contacto -->
+        <div class="contact-info">
+
+          <h3>Fala connosco directamente</h3>
+
+          <!-- WhatsApp 1 -->
+          <!-- 🔧 PERSONALIZAÇÃO: altere os números de WhatsApp aqui -->
+          <a href="https://wa.me/258857592248?text=Olá!%20Vi%20o%20CodeZimpeto%20e%20quero%20saber%20mais%20sobre%20os%20cursos."
+             class="whatsapp-card" target="_blank" rel="noopener">
+            <div class="wa-icon">📱</div>
+            <div>
+              <strong>WhatsApp 1</strong>
+              <span>+258 85 759 2248</span>
+            </div>
+            <span class="wa-arrow">→</span>
+          </a>
+
+          <!-- WhatsApp 2 -->
+          <a href="https://wa.me/258848699933?text=Olá!%20Vi%20o%20CodeZimpeto%20e%20quero%20saber%20mais%20sobre%20os%20cursos."
+             class="whatsapp-card" target="_blank" rel="noopener">
+            <div class="wa-icon">📱</div>
+            <div>
+              <strong>WhatsApp 2</strong>
+              <span>+258 84 869 9933</span>
+            </div>
+            <span class="wa-arrow">→</span>
+          </a>
+
+          <!-- Localização -->
+          <div class="info-block">
+            <span class="info-icon">📍</span>
+            <div>
+              <strong>Localização</strong>
+              <span>Zimpeto, Maputo, Moçambique</span>
+              <a href="https://maps.google.com/?q=Zimpeto,Maputo,Mozambique" target="_blank" rel="noopener" class="map-link">Ver no mapa →</a>
+            </div>
+          </div>
+
+          <!-- Horário -->
+          <div class="info-block">
+            <span class="info-icon">🕐</span>
+            <div>
+              <strong>Horário de atendimento</strong>
+              <span>Segunda a Sábado: 07h00 – 20h00</span>
+              <span>Domingo: 09h00 – 14h00</span>
+            </div>
+          </div>
+
+          <!-- FAQ rápido -->
+          <div class="info-block">
+            <span class="info-icon">❓</span>
+            <div>
+              <strong>Preciso de computador?</strong>
+              <span>Sim, mas podes usar o nosso PC nas aulas presenciais.</span>
+            </div>
+          </div>
+
+        </div><!-- /contact-info -->
+
+      </div><!-- /contact-inner -->
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo">
+            <span class="logo-bracket">&lt;</span>Code<span class="logo-accent">Zimpeto</span><span class="logo-bracket">/&gt;</span>
+          </a>
+          <p>Formamos programadores moçambicanos com cursos práticos, acessíveis e em língua portuguesa.</p>
+          <!-- WhatsApp links no footer -->
+          <div class="footer-wa">
+            <a href="https://wa.me/258857592248" target="_blank" rel="noopener" class="wa-btn-sm">📲 +258 85 759 2248</a>
+            <a href="https://wa.me/258848699933" target="_blank" rel="noopener" class="wa-btn-sm">📲 +258 84 869 9933</a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#cursos">Cursos</a></li>
+            <li><a href="#demo">Demo</a></li>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Cursos</h4>
+          <ul>
+            <li><a href="#cursos">Básico — 1.000 MT</a></li>
+            <li><a href="#cursos">Intermediário — 2.000 MT</a></li>
+            <li><a href="#cursos">Completo — 2.800 MT</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Localização</h4>
+          <address>
+            <p>📍 Zimpeto, Maputo</p>
+            <p>Moçambique</p>
+            <a href="https://maps.google.com/?q=Zimpeto,Maputo,Mozambique" target="_blank" rel="noopener">Ver no Google Maps →</a>
+          </address>
+        </div>
+
+      </div><!-- /footer-grid -->
+
+      <div class="footer-bottom">
+        <p>© 2025 CodeZimpeto. Todos os direitos reservados.</p>
+        <p>Feito com ❤️ em Maputo, Moçambique 🇲🇿</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       BOTÃO FLUTUANTE WHATSAPP
+       ============================================================ -->
+  <div class="wa-float-group" aria-label="Contactar via WhatsApp">
+    <button class="wa-float-toggle" id="waToggle" onclick="toggleWaMenu()" aria-expanded="false" aria-label="Abrir opções WhatsApp">
+      <span class="wa-icon-main">💬</span>
+    </button>
+    <div class="wa-float-menu" id="waMenu" hidden>
+      <a href="https://wa.me/258857592248?text=Olá!%20Vi%20o%20CodeZimpeto%20e%20quero%20saber%20mais%20sobre%20os%20cursos."
+         target="_blank" rel="noopener" class="wa-float-link">
+        <span>📱</span>
+        <span>+258 85 759 2248</span>
+      </a>
+      <a href="https://wa.me/258848699933?text=Olá!%20Vi%20o%20CodeZimpeto%20e%20quero%20saber%20mais%20sobre%20os%20cursos."
+         target="_blank" rel="noopener" class="wa-float-link">
+        <span>📱</span>
+        <span>+258 84 869 9933</span>
+      </a>
+    </div>
+    <span class="wa-float-label">Fala connosco</span>
+  </div>
+
+  <!-- ============================================================
+       MODAL DE MATRÍCULA
+       ============================================================ -->
+  <div class="modal-overlay" id="modalOverlay" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()" aria-label="Fechar">✕</button>
+      <h3 id="modalTitle">Matricula-te Agora! 🎉</h3>
+      <p id="modalSubtitle">Escolhe como preferes continuar:</p>
+
+      <!-- Pacote seleccionado (preenchido via JS) -->
+      <div class="modal-selected-course" id="modalCourse"></div>
+
+      <div class="modal-options">
+        <a id="modalWa1"
+           href="https://wa.me/258857592248?text=Olá!%20Quero%20me%20matricular%20no%20CodeZimpeto."
+           class="btn btn-primary btn-full" target="_blank" rel="noopener">
+          📲 WhatsApp: +258 85 759 2248
+        </a>
+        <a id="modalWa2"
+           href="https://wa.me/258848699933?text=Olá!%20Quero%20me%20matricular%20no%20CodeZimpeto."
+           class="btn btn-outline btn-full" target="_blank" rel="noopener">
+          📲 WhatsApp: +258 84 869 9933
+        </a>
+        <button class="btn btn-ghost btn-full" onclick="closeModal(); scrollToForm();">
+          📨 Preencher Formulário
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
